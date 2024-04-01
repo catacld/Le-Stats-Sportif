@@ -84,7 +84,39 @@ class TaskRunner(Thread):
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
                 if job.requestType == 'statesMeanRequest':
-                    print('statesMeanRequest')
+
+                    averageForEachState = {}
+                    sumForEachState = {}
+                    numberOfValuesForEachState = {}
+
+                    question = job.requestQuestion
+                    id = job.requestId
+
+
+
+                    for item in recordsWrapper.records:
+                        if item.question == question:
+                            sumForEachState[item.locationDesc] = (sumForEachState.get(item.locationDesc, 0)
+                                                                  + item.dataValue)
+                            numberOfValuesForEachState[item.locationDesc] = (
+                                    numberOfValuesForEachState.get(item.locationDesc, 0)
+                                    + 1)
+
+                    for key in sumForEachState:
+                        averageForEachState[key] = sumForEachState[key] / numberOfValuesForEachState[key]
+
+                    sortedAverages = dict(
+                        sorted(averageForEachState.items(), key=lambda item: item[1]))
+
+                    jobsWrapper.finishedJobs[id] = sortedAverages
+
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(sortedAverages))
+
+
+
+
+
                 elif job.requestType == 'stateMeanRequest':
                     # print('stateMeanRequest')
 
