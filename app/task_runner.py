@@ -3,6 +3,7 @@ from queue import Queue
 from threading import Thread, Event
 import time
 import json
+from itertools import islice
 
 from .data_ingestor import RecordsWrapper
 
@@ -16,10 +17,8 @@ class JobsWrapper:
             cls._self.finishedJobs = {}
         return cls._self
 
-
     def get_jobs(cls):
         return cls._self.finishedJobs
-
 
 
 class ThreadPool:
@@ -70,7 +69,6 @@ class TaskRunner(Thread):
             # Execute the job and save the result to disk
             # Repeat until graceful_shutdown
 
-
             # wrapper used to access the 'database'
             recordsWrapper = RecordsWrapper()
             jobsWrapper = JobsWrapper()
@@ -88,7 +86,7 @@ class TaskRunner(Thread):
                 if job.requestType == 'statesMeanRequest':
                     print('statesMeanRequest')
                 elif job.requestType == 'stateMeanRequest':
-                    #print('stateMeanRequest')
+                    # print('stateMeanRequest')
 
                     state = job.state
                     question = job.requestQuestion
@@ -102,14 +100,11 @@ class TaskRunner(Thread):
                             sum += item.dataValue
                             num += 1
 
-
                     average = sum / num
                     answer = {state: average}
 
-
                     # add the result of the job
                     jobsWrapper.finishedJobs[id] = answer
-
 
                     # write the output of the request
                     with open(output_path, 'w+') as f:
@@ -117,15 +112,126 @@ class TaskRunner(Thread):
 
                 elif job.requestType == 'statesDiffFromMeanRequest':
                     state = job.state
+                    question = job.requestQuestion
+                    id = job.requestId
 
-                    print('\nGIVEN STATE: ', state)
+                    globalMeanValue = 0
+                    numberOfGlobalValues = 0
+                    stateMeanValue = 0
+                    numberOfStateValues = 0
 
                     for item in recordsWrapper.records:
-                        if item.locationDesc == state:
-                            print(f"locationDesc: {item.locationDesc}")
+                        if item.question == question:
+                            if item.locationDesc == state:
+                                stateMeanValue += item.dataValue
+                                numberOfStateValues += 1
+                            globalMeanValue += item.dataValue
+                            numberOfGlobalValues += 1
 
-                    print('\nstatesDiffFromMeanRequestPRINT')
+                    result = (globalMeanValue / numberOfGlobalValues) - (stateMeanValue / numberOfStateValues)
 
+                    answer = {state: result}
+
+                    # add the result of the job
+                    jobsWrapper.finishedJobs[id] = answer
+
+
+
+                elif job.requestType == 'best5Request':
+                    averageForEachState = {}
+                    sumForEachState = {}
+                    numberOfValuesForEachState = {}
+
+                    question = job.requestQuestion
+                    id = job.requestId
+
+
+                    # question where greater is better
+                    sortDescending = ['Percent of adults who achieve at least 300 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 150 minutes a week of '
+                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                      'Percent of adults who achieve at least 150 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                      'vigorous-intensity aerobic physical activity and engage in '
+                                      'muscle-strengthening activities on 2 or more days a week',
+                                      'Percent of adults who achieve at least 150 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                      'Percent of adults who engage in muscle-strengthening activities on 2 or more '
+                                      'days a week']
+
+                    for item in recordsWrapper.records:
+                        if item.question == question:
+                            sumForEachState[item.locationDesc] = (sumForEachState.get(item.locationDesc, 0)
+                                                                  + item.dataValue)
+                            numberOfValuesForEachState[item.locationDesc] = (
+                                    numberOfValuesForEachState.get(item.locationDesc, 0)
+                                    + 1)
+
+
+                    for key in sumForEachState:
+                        averageForEachState[key] = sumForEachState[key] / numberOfValuesForEachState[key]
+
+                    if question in sortDescending:
+                        sortedAverages = dict(sorted(averageForEachState.items(), key= lambda item: item[1], reverse=True))
+                    else:
+                        sortedAverages = dict(
+                            sorted(averageForEachState.items(), key=lambda item: item[1]))
+
+                    sortedAverages = dict(islice(sortedAverages.items(), 5))
+
+                    jobsWrapper.finishedJobs[id] = sortedAverages
+
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(sortedAverages))
+
+
+                elif job.requestType == 'worst5Request':
+                    averageForEachState = {}
+                    sumForEachState = {}
+                    numberOfValuesForEachState = {}
+
+                    question = job.requestQuestion
+                    id = job.requestId
+
+                    # question where greater is better
+                    sortAscending = ['Percent of adults who achieve at least 300 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 150 minutes a week of '
+                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                      'Percent of adults who achieve at least 150 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                      'vigorous-intensity aerobic physical activity and engage in '
+                                      'muscle-strengthening activities on 2 or more days a week',
+                                      'Percent of adults who achieve at least 150 minutes a week of '
+                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                      'Percent of adults who engage in muscle-strengthening activities on 2 or more '
+                                      'days a week']
+
+                    for item in recordsWrapper.records:
+                        if item.question == question:
+                            sumForEachState[item.locationDesc] = (sumForEachState.get(item.locationDesc, 0)
+                                                                  + item.dataValue)
+                            numberOfValuesForEachState[item.locationDesc] = (
+                                    numberOfValuesForEachState.get(item.locationDesc, 0)
+                                    + 1)
+
+                    for key in sumForEachState:
+                        averageForEachState[key] = sumForEachState[key] / numberOfValuesForEachState[key]
+
+                    if question in sortAscending:
+                        sortedAverages = dict(
+                            sorted(averageForEachState.items(), key=lambda item: item[1]))
+                    else:
+                        sortedAverages = dict(
+                            sorted(averageForEachState.items(), key=lambda item: item[1], reverse=True))
+
+                    sortedAverages = dict(islice(sortedAverages.items(), 5))
+
+                    jobsWrapper.finishedJobs[id] = sortedAverages
+
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(sortedAverages))
                 elif job.requestType == 'globalMeanRequest':
                     # print('stateMeanRequest')
 
@@ -143,10 +249,8 @@ class TaskRunner(Thread):
                     average = sum / num
                     answer = {"global_mean": average}
 
-
                     # add the result of the job
                     jobsWrapper.finishedJobs[id] = answer
-
 
                     # write the output of the request
                     with open(output_path, 'w+') as f:

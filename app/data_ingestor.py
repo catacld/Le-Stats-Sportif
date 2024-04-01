@@ -34,16 +34,10 @@ class DataIngestor:
 
         records = [Record(row['Question'], row['Data_Value'], row['LocationDesc']) for index, row in data.iterrows()]
 
-        # for item in records:
-        #     print(f"Question: {item.question}, Data Value: {item.dataValue}, locationDesc: {item.locationDesc}")
-
         # init the singleton wrapper class
         recordsWrapper = RecordsWrapper()
         # add the records
         recordsWrapper.setRecords(records)
-
-        # for item in recordsWrapper.records:
-        #     print(f"Question: {item.question}, Data Value: {item.dataValue}, locationDesc: {item.locationDesc}")
 
         self.questions_best_is_min = [
             'Percent of adults aged 18 years and older who have an overweight classification',

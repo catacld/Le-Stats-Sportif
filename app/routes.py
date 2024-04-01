@@ -16,6 +16,7 @@ class Job:
         self.requestId = requestId
         self.requestType = requestType
         self.requestQuestion = requestQuestion
+        # used for ordering in best5 and worst5
         self.state = state
 
 
@@ -132,24 +133,40 @@ def state_mean_request():
 
 @webserver.route('/api/best5', methods=['POST'])
 def best5_request():
-    # TODO
     # Get request data
-    # Register job. Don't wait for task to finish
-    # Increment job_id counter
-    # Return associated job_id
+    data = request.json
+    print(f"Got request {data}")
 
-    return jsonify({"status": "NotImplemented"})
+    global assigned_job_id
+
+    # TODO
+    # Register job. Don't wait for task to finish
+    job = Job(assigned_job_id, 'best5Request', data["question"])
+    threadPool.tasks.put(job)
+
+    # Increment job_id counter
+    assigned_job_id += 1
+    # Return associated job_id
+    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
 
 @webserver.route('/api/worst5', methods=['POST'])
 def worst5_request():
-    # TODO
     # Get request data
-    # Register job. Don't wait for task to finish
-    # Increment job_id counter
-    # Return associated job_id
+    data = request.json
+    print(f"Got request {data}")
 
-    return jsonify({"status": "NotImplemented"})
+    global assigned_job_id
+
+    # TODO
+    # Register job. Don't wait for task to finish
+    job = Job(assigned_job_id, 'worst5Request', data["question"])
+    threadPool.tasks.put(job)
+
+    # Increment job_id counter
+    assigned_job_id += 1
+    # Return associated job_id
+    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
 
 @webserver.route('/api/global_mean', methods=['POST'])
