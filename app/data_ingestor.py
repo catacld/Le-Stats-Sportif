@@ -30,7 +30,7 @@ class DataIngestor:
     def __init__(self, csv_path: str):
         # TODO: Read csv from csv_path
 
-        data = pandas.read_csv(csv_path, usecols=['Question', 'Data_Value', 'LocationDesc'])
+        data = pandas.read_csv(csv_path, usecols=['Question', 'Data_Value', 'LocationDesc', 'StratificationCategory1', 'Stratification1'])
 
         records = [Record(row['Question'], row['Data_Value'], row['LocationDesc']) for index, row in data.iterrows()]
 

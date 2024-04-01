@@ -189,13 +189,20 @@ def global_mean_request():
 
 @webserver.route('/api/diff_from_mean', methods=['POST'])
 def diff_from_mean_request():
-    # TODO
-    # Get request data
-    # Register job. Don't wait for task to finish
-    # Increment job_id counter
-    # Return associated job_id
+    data = request.json
+    # print(f"Got request {data}")
 
-    return jsonify({"status": "NotImplemented"})
+    global assigned_job_id
+
+    # TODO
+    # Register job. Don't wait for task to finish
+    job = Job(assigned_job_id, 'diffFromMeanRequest', data["question"])
+    threadPool.tasks.put(job)
+
+    # Increment job_id counter
+    assigned_job_id += 1
+    # Return associated job_id
+    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
 
 @webserver.route('/api/state_diff_from_mean', methods=['POST'])

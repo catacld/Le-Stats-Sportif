@@ -145,7 +145,6 @@ class TaskRunner(Thread):
                     question = job.requestQuestion
                     id = job.requestId
 
-
                     # question where greater is better
                     sortDescending = ['Percent of adults who achieve at least 300 minutes a week of '
                                       'moderate-intensity aerobic physical activity or 150 minutes a week of '
@@ -168,12 +167,12 @@ class TaskRunner(Thread):
                                     numberOfValuesForEachState.get(item.locationDesc, 0)
                                     + 1)
 
-
                     for key in sumForEachState:
                         averageForEachState[key] = sumForEachState[key] / numberOfValuesForEachState[key]
 
                     if question in sortDescending:
-                        sortedAverages = dict(sorted(averageForEachState.items(), key= lambda item: item[1], reverse=True))
+                        sortedAverages = dict(
+                            sorted(averageForEachState.items(), key=lambda item: item[1], reverse=True))
                     else:
                         sortedAverages = dict(
                             sorted(averageForEachState.items(), key=lambda item: item[1]))
@@ -196,17 +195,17 @@ class TaskRunner(Thread):
 
                     # question where greater is better
                     sortAscending = ['Percent of adults who achieve at least 300 minutes a week of '
-                                      'moderate-intensity aerobic physical activity or 150 minutes a week of '
-                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
-                                      'Percent of adults who achieve at least 150 minutes a week of '
-                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
-                                      'vigorous-intensity aerobic physical activity and engage in '
-                                      'muscle-strengthening activities on 2 or more days a week',
-                                      'Percent of adults who achieve at least 150 minutes a week of '
-                                      'moderate-intensity aerobic physical activity or 75 minutes a week of '
-                                      'vigorous-intensity aerobic activity (or an equivalent combination)',
-                                      'Percent of adults who engage in muscle-strengthening activities on 2 or more '
-                                      'days a week']
+                                     'moderate-intensity aerobic physical activity or 150 minutes a week of '
+                                     'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                     'Percent of adults who achieve at least 150 minutes a week of '
+                                     'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                     'vigorous-intensity aerobic physical activity and engage in '
+                                     'muscle-strengthening activities on 2 or more days a week',
+                                     'Percent of adults who achieve at least 150 minutes a week of '
+                                     'moderate-intensity aerobic physical activity or 75 minutes a week of '
+                                     'vigorous-intensity aerobic activity (or an equivalent combination)',
+                                     'Percent of adults who engage in muscle-strengthening activities on 2 or more '
+                                     'days a week']
 
                     for item in recordsWrapper.records:
                         if item.question == question:
@@ -232,6 +231,36 @@ class TaskRunner(Thread):
 
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
+                elif job.requestType == 'diffFromMeanRequest':
+                    diffForEachState = {}
+                    sumForEachState = {}
+                    numberOfValuesForEachState = {}
+
+                    globalSum = 0
+                    numberOfGlobalValues = 0
+
+                    question = job.requestQuestion
+                    id = job.requestId
+
+                    for item in recordsWrapper.records:
+                        if item.question == question:
+                            sumForEachState[item.locationDesc] = (sumForEachState.get(item.locationDesc, 0)
+                                                                  + item.dataValue)
+                            numberOfValuesForEachState[item.locationDesc] = (
+                                    numberOfValuesForEachState.get(item.locationDesc, 0)
+                                    + 1)
+                            globalSum += item.dataValue
+                            numberOfGlobalValues += 1
+
+                    for key in sumForEachState:
+                        diffForEachState[key] = globalSum / numberOfGlobalValues - sumForEachState[key] / \
+                                                numberOfValuesForEachState[key]
+
+                    jobsWrapper.finishedJobs[id] = diffForEachState
+
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(diffForEachState))
+
                 elif job.requestType == 'globalMeanRequest':
                     # print('stateMeanRequest')
 
