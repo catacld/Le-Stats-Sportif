@@ -135,6 +135,10 @@ class TaskRunner(Thread):
                     # add the result of the job
                     jobsWrapper.finishedJobs[id] = answer
 
+                    # write the output of the request
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(answer))
+
 
 
                 elif job.requestType == 'best5Request':
@@ -260,6 +264,45 @@ class TaskRunner(Thread):
 
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(diffForEachState))
+
+                elif job.requestType == 'stateMeanByCategoryRequest':
+                    state = job.state
+                    question = job.requestQuestion
+                    id = job.requestId
+
+
+                    sumForEachSegment = {}
+                    numberOfValuesForEachSegment = {}
+                    averageForEachSegment = {}
+
+
+
+                    for item in recordsWrapper.records:
+                        if item.locationDesc == state and item.question == question:
+                            key = '(\'' + item.stratificationCategory + '\', \'' + item.stratification + '\')'
+
+                            sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
+                            numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
+
+                            #print('\nTHE KEY IS: ', key)
+
+
+                    for key in sumForEachSegment:
+                        averageForEachSegment[key] = sumForEachSegment[key] / numberOfValuesForEachSegment[key]
+
+                    answer = {state: averageForEachSegment}
+
+                    # add the result of the job
+                    jobsWrapper.finishedJobs[id] = answer
+
+                    # write the output of the request
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(answer))
+
+
+
+
+
 
                 elif job.requestType == 'globalMeanRequest':
                     # print('stateMeanRequest')

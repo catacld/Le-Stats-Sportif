@@ -5,10 +5,12 @@ import pandas
 
 class Record:
 
-    def __init__(self, question, dataValue, locationDesc):
+    def __init__(self, question, dataValue, locationDesc, stratificationCategory, stratification):
         self.question = question
         self.dataValue = dataValue
         self.locationDesc = locationDesc
+        self.stratificationCategory = stratificationCategory
+        self.stratification = stratification
 
 
 # singleton wrapper class used to share the records between this class and task_runner
@@ -30,9 +32,11 @@ class DataIngestor:
     def __init__(self, csv_path: str):
         # TODO: Read csv from csv_path
 
-        data = pandas.read_csv(csv_path, usecols=['Question', 'Data_Value', 'LocationDesc', 'StratificationCategory1', 'Stratification1'])
+        data = pandas.read_csv(csv_path, usecols=['Question', 'Data_Value', 'LocationDesc',
+                                                  'StratificationCategory1', 'Stratification1'])
 
-        records = [Record(row['Question'], row['Data_Value'], row['LocationDesc']) for index, row in data.iterrows()]
+        records = [Record(row['Question'], row['Data_Value'], row['LocationDesc'], row['StratificationCategory1'],
+                          row['Stratification1']) for index, row in data.iterrows()]
 
         # init the singleton wrapper class
         recordsWrapper = RecordsWrapper()
