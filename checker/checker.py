@@ -13,8 +13,8 @@ total_score = 0
 ONLY_LAST = False
 
 class TestAPI(unittest.TestCase):
-    # def setUp(self):
-    #    os.system("rm -rf results/*")
+    def setUp(self):
+        os.system("rm -rf results/*")
 
     def check_res_timeout(self, res_callable, ref_result, timeout_sec, poll_interval = 0.2):
         initial_timestamp = datetime.now()
@@ -45,7 +45,7 @@ class TestAPI(unittest.TestCase):
     # @unittest.skipIf(ONLY_LAST, "Checking only the last added test")
     # def test_states_mean(self):
     #     self.helper_test_endpoint("states_mean")
-    #
+
     @unittest.skipIf(ONLY_LAST, "Checking only the last added test")
     def test_state_mean(self):
         self.helper_test_endpoint("state_mean")
@@ -70,9 +70,9 @@ class TestAPI(unittest.TestCase):
     def test_state_diff_from_mean(self):
         self.helper_test_endpoint("state_diff_from_mean")
 
-#     @unittest.skipIf(ONLY_LAST, "Checking only the last added test")
-#     def test_mean_by_category(self):
-#         self.helper_test_endpoint("mean_by_category")
+    @unittest.skipIf(ONLY_LAST, "Checking only the last added test")
+    def test_mean_by_category(self):
+        self.helper_test_endpoint("mean_by_category")
 
     def test_state_mean_by_category(self):
         self.helper_test_endpoint("state_mean_by_category")

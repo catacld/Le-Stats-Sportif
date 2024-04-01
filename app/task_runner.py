@@ -270,22 +270,22 @@ class TaskRunner(Thread):
                     question = job.requestQuestion
                     id = job.requestId
 
-
                     sumForEachSegment = {}
                     numberOfValuesForEachSegment = {}
                     averageForEachSegment = {}
 
-
-
                     for item in recordsWrapper.records:
                         if item.locationDesc == state and item.question == question:
-                            key = '(\'' + item.stratificationCategory + '\', \'' + item.stratification + '\')'
 
-                            sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
-                            numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
+                            # check that there are values available
+                            if type(item.stratificationCategory) is not float and type(
+                                    item.stratification) is not float:
+                                key = '(\'' + item.stratificationCategory + '\', \'' + item.stratification + '\')'
 
-                            #print('\nTHE KEY IS: ', key)
+                                sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
+                                numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
 
+                            # print('\nTHE KEY IS: ', key)
 
                     for key in sumForEachSegment:
                         averageForEachSegment[key] = sumForEachSegment[key] / numberOfValuesForEachSegment[key]
@@ -300,7 +300,39 @@ class TaskRunner(Thread):
                         f.write(json.dumps(answer))
 
 
+                elif job.requestType == 'meanByCategoryRequest':
+                    question = job.requestQuestion
+                    id = job.requestId
 
+                    sumForEachSegment = {}
+                    numberOfValuesForEachSegment = {}
+                    averageForEachSegment = {}
+
+                    for item in recordsWrapper.records:
+                        if item.question == question:
+
+
+
+                            # check that there are values available
+                            if type(item.stratificationCategory) is not float and type(
+                                    item.stratification) is not float:
+                                key = ('(\'' + item.locationDesc + '\', \'' + item.stratificationCategory +
+                                       '\', \'' + item.stratification + '\')')
+
+                                sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
+                                numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
+
+                    for key in sumForEachSegment:
+                        averageForEachSegment[key] = sumForEachSegment[key] / numberOfValuesForEachSegment[key]
+
+                    # answer = {state: averageForEachSegment}
+
+                    # add the result of the job
+                    jobsWrapper.finishedJobs[id] = averageForEachSegment
+
+                    # write the output of the request
+                    with open(output_path, 'w+') as f:
+                        f.write(json.dumps(averageForEachSegment))
 
 
 
