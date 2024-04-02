@@ -12,19 +12,20 @@ total_score = 0
 
 ONLY_LAST = False
 
+
 class TestAPI(unittest.TestCase):
     def setUp(self):
         os.system("rm -rf results/*")
 
-    def check_res_timeout(self, res_callable, ref_result, timeout_sec, poll_interval = 0.2):
+    def check_res_timeout(self, res_callable, ref_result, timeout_sec, poll_interval=0.2):
         initial_timestamp = datetime.now()
         while True:
             response = res_callable()
             # print(response)
-        
+
             # Asserting that the response status code is 200 (OK)
             self.assertEqual(response.status_code, 200)
-        
+
             # Asserting the response data
             response_data = response.json()
             # print(f"Response_data\n{response_data}")
@@ -110,12 +111,13 @@ class TestAPI(unittest.TestCase):
                 job_id = job_id["job_id"]
 
                 self.check_res_timeout(
-                    res_callable = lambda: requests.get(f"http://127.0.0.1:5000/api/get_results/{job_id}"),
-                    ref_result = ref_result,
-                    timeout_sec = 1)
+                    res_callable=lambda: requests.get(f"http://127.0.0.1:5000/api/get_results/{job_id}"),
+                    ref_result=ref_result,
+                    timeout_sec=1)
 
                 local_score += test_score
         total_score += min(round(local_score), test_suite_score)
+
 
 if __name__ == '__main__':
     try:

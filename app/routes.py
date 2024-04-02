@@ -1,7 +1,8 @@
 from app import webserver
 from flask import request, jsonify
 
-from .task_runner import ThreadPool, JobsWrapper
+from .database import Database
+from .task_runner import ThreadPool
 
 import os
 import json
@@ -12,7 +13,7 @@ threadPool = ThreadPool()
 
 class Job:
 
-    def __init__(self, requestId, requestType, requestQuestion, state = None):
+    def __init__(self, requestId, requestType, requestQuestion, state=None):
         self.requestId = requestId
         self.requestType = requestType
         self.requestQuestion = requestQuestion
@@ -44,52 +45,35 @@ def get_response(job_id):
     print(f"JobID is {job_id}")
     # TODO
 
-
-    #print (job_id.split("_")[2])
-
-    convertedJobId = int(job_id.split("_")[2]) - 1;
+    # -1 since my ids starts from 1 and server ids from 2
+    convertedJobId = int(job_id.split("_")[2]) - 1
+    jobId = 'job_id_' + str(convertedJobId)
+    database = Database()
 
     # Check if job_id is valid
-    # if the job id is greater than the counter
-    # of ids assigned until this moment
-    # it is not valid
-    if convertedJobId > assigned_job_id:
+    if jobId not in database.jobStatus:
         return jsonify({
             "status": "error",
             "reason": "Invalid job_id"
         })
 
 
-    # Check if job_id is done and return the result
-    #    res = res_for(job_id)
-    #    return jsonify({
-    #        'status': 'done',
-    #        'data': res
-    #    })
-
-    jobsWrapper = JobsWrapper()
 
 
-    if len(jobsWrapper.finishedJobs) > 0:
+    # the job is valid and done
+    if database.jobStatus[jobId] == 'done':
+        current_dir = os.getcwd()
+        output_path = os.path.join(current_dir, "results", f"job_id_{convertedJobId}")
+        with open(output_path, 'r') as file:
+            res = json.load(file)
 
-        if convertedJobId in jobsWrapper.finishedJobs:
-            #print("INTRA IN FINISHED")
-            res = jobsWrapper.finishedJobs[convertedJobId]
             return jsonify({
                 'status': 'done',
                 'data': res
             })
 
-
-    # return jsonify({
-    #     'status': 'done',
-    #    'data': 'DATA'
-    # })
-
-    #print("\nINTRA IN RUNNING")
-    # the job is valid, but not done
+    # the job is valid, but still running
     return jsonify({'status': 'running'})
-
 
 
 @webserver.route('/api/states_mean', methods=['POST'])
@@ -102,6 +86,7 @@ def states_mean_request():
 
     # TODO
     # Register job. Don't wait for task to finish
+
     job = Job(assigned_job_id, 'statesMeanRequest', data["question"])
     threadPool.tasks.put(job)
 
@@ -110,13 +95,10 @@ def states_mean_request():
     # Return associated job_id
     return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
-    # return jsonify({"status": "NotImplemented"})
-
 
 @webserver.route('/api/state_mean', methods=['POST'])
 def state_mean_request():
     data = request.json
-    #print(f"Got request {data}")
 
     global assigned_job_id
 
@@ -190,7 +172,6 @@ def global_mean_request():
 @webserver.route('/api/diff_from_mean', methods=['POST'])
 def diff_from_mean_request():
     data = request.json
-    # print(f"Got request {data}")
 
     global assigned_job_id
 
@@ -209,7 +190,7 @@ def diff_from_mean_request():
 def state_diff_from_mean_request():
     # Get request data
     data = request.json
-    #print(f"Got request {data}")
+    # print(f"Got request {data}")
 
     global assigned_job_id
 

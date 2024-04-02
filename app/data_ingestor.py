@@ -2,6 +2,8 @@ import os
 import json
 import pandas
 
+from app.database import Database
+
 
 class Record:
 
@@ -11,20 +13,6 @@ class Record:
         self.locationDesc = locationDesc
         self.stratificationCategory = stratificationCategory
         self.stratification = stratification
-
-
-# singleton wrapper class used to share the records between this class and task_runner
-class RecordsWrapper:
-    _self = None  # Store the single instance
-
-    def __new__(cls):
-        if cls._self is None:
-            cls._self = super().__new__(cls)
-            cls._self.records = []
-        return cls._self
-
-    def setRecords(cls, records):
-        cls._self.records = records
 
 
 class DataIngestor:
@@ -39,21 +27,21 @@ class DataIngestor:
                           row['Stratification1']) for index, row in data.iterrows()]
 
         # init the singleton wrapper class
-        recordsWrapper = RecordsWrapper()
+        database = Database()
         # add the records
-        recordsWrapper.setRecords(records)
+        database.setRecords(records)
 
-        self.questions_best_is_min = [
-            'Percent of adults aged 18 years and older who have an overweight classification',
-            'Percent of adults aged 18 years and older who have obesity',
-            'Percent of adults who engage in no leisure-time physical activity',
-            'Percent of adults who report consuming fruit less than one time daily',
-            'Percent of adults who report consuming vegetables less than one time daily'
-        ]
-
-        self.questions_best_is_max = [
-            'Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)',
-            'Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week',
-            'Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)',
-            'Percent of adults who engage in muscle-strengthening activities on 2 or more days a week',
-        ]
+        # self.questions_best_is_min = [
+        #     'Percent of adults aged 18 years and older who have an overweight classification',
+        #     'Percent of adults aged 18 years and older who have obesity',
+        #     'Percent of adults who engage in no leisure-time physical activity',
+        #     'Percent of adults who report consuming fruit less than one time daily',
+        #     'Percent of adults who report consuming vegetables less than one time daily'
+        # ]
+        #
+        # self.questions_best_is_max = [
+        #     'Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)',
+        #     'Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week',
+        #     'Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)',
+        #     'Percent of adults who engage in muscle-strengthening activities on 2 or more days a week',
+        # ]
