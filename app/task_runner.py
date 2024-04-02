@@ -5,8 +5,8 @@ import time
 import json
 from itertools import islice
 
-
 from .database import Database
+
 
 class ThreadPool:
     def __init__(self):
@@ -59,10 +59,16 @@ class TaskRunner(Thread):
             # wrapper used to access the 'database'
             database = Database()
 
-
             if not self.tasks.empty():
                 # no locks needed since queues are already synchronized
                 job = self.tasks.get()
+
+                # set the job status as running
+                id = 'job_id_' + str(job.requestId)
+                database.jobStatus[id] = 'running'
+
+                # extract the request' question
+                question = job.requestQuestion
 
                 # create the output path of the file
                 current_dir = os.getcwd()
@@ -76,11 +82,6 @@ class TaskRunner(Thread):
                     averageForEachState = {}
                     sumForEachState = {}
                     numberOfValuesForEachState = {}
-
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     for item in database.records:
                         if item.question == question:
@@ -96,8 +97,6 @@ class TaskRunner(Thread):
                     sortedAverages = dict(
                         sorted(averageForEachState.items(), key=lambda item: item[1]))
 
-
-
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
@@ -106,17 +105,11 @@ class TaskRunner(Thread):
 
 
                 elif job.requestType == 'stateMeanRequest':
-                    # print('stateMeanRequest')
-
 
                     state = job.state
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
 
-                    database.jobStatus[id] = 'running'
-
-                    sum = 0;
-                    num = 0;
+                    sum = 0
+                    num = 0
 
                     for item in database.records:
                         if item.locationDesc == state and item.question == question:
@@ -126,8 +119,6 @@ class TaskRunner(Thread):
                     average = sum / num
                     answer = {state: average}
 
-
-
                     # write the output of the request
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
@@ -136,10 +127,6 @@ class TaskRunner(Thread):
 
                 elif job.requestType == 'statesDiffFromMeanRequest':
                     state = job.state
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     globalMeanValue = 0
                     numberOfGlobalValues = 0
@@ -158,7 +145,6 @@ class TaskRunner(Thread):
 
                     answer = {state: result}
 
-
                     # write the output of the request
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
@@ -171,11 +157,6 @@ class TaskRunner(Thread):
                     averageForEachState = {}
                     sumForEachState = {}
                     numberOfValuesForEachState = {}
-
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     # question where greater is better
                     sortDescending = ['Percent of adults who achieve at least 300 minutes a week of '
@@ -211,8 +192,6 @@ class TaskRunner(Thread):
 
                     sortedAverages = dict(islice(sortedAverages.items(), 5))
 
-
-
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
@@ -223,11 +202,6 @@ class TaskRunner(Thread):
                     averageForEachState = {}
                     sumForEachState = {}
                     numberOfValuesForEachState = {}
-
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     # question where greater is better
                     sortAscending = ['Percent of adults who achieve at least 300 minutes a week of '
@@ -263,13 +237,11 @@ class TaskRunner(Thread):
 
                     sortedAverages = dict(islice(sortedAverages.items(), 5))
 
-
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
                     database.jobStatus[id] = 'done'
 
-                    database.jobStatus[id] = 'done'
                 elif job.requestType == 'diffFromMeanRequest':
                     diffForEachState = {}
                     sumForEachState = {}
@@ -277,11 +249,6 @@ class TaskRunner(Thread):
 
                     globalSum = 0
                     numberOfGlobalValues = 0
-
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     for item in database.records:
                         if item.question == question:
@@ -297,8 +264,6 @@ class TaskRunner(Thread):
                         diffForEachState[key] = globalSum / numberOfGlobalValues - sumForEachState[key] / \
                                                 numberOfValuesForEachState[key]
 
-
-
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(diffForEachState))
 
@@ -306,10 +271,6 @@ class TaskRunner(Thread):
 
                 elif job.requestType == 'stateMeanByCategoryRequest':
                     state = job.state
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     sumForEachSegment = {}
                     numberOfValuesForEachSegment = {}
@@ -333,8 +294,6 @@ class TaskRunner(Thread):
 
                     answer = {state: averageForEachSegment}
 
-
-
                     # write the output of the request
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
@@ -343,10 +302,6 @@ class TaskRunner(Thread):
 
 
                 elif job.requestType == 'meanByCategoryRequest':
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
-
-                    database.jobStatus[id] = 'running'
 
                     sumForEachSegment = {}
                     numberOfValuesForEachSegment = {}
@@ -354,8 +309,6 @@ class TaskRunner(Thread):
 
                     for item in database.records:
                         if item.question == question:
-
-
 
                             # check that there are values available
                             if type(item.stratificationCategory) is not float and type(
@@ -383,13 +336,9 @@ class TaskRunner(Thread):
                     # print('stateMeanRequest')
 
                     state = job.state
-                    question = job.requestQuestion
-                    id = 'job_id_' + str(job.requestId)
 
-                    database.jobStatus[id] = 'running'
-
-                    sum = 0;
-                    num = 0;
+                    sum = 0
+                    num = 0
                     for item in database.records:
                         if item.question == question:
                             sum += item.dataValue
@@ -397,7 +346,6 @@ class TaskRunner(Thread):
 
                     average = sum / num
                     answer = {"global_mean": average}
-
 
                     # write the output of the request
                     with open(output_path, 'w+') as f:

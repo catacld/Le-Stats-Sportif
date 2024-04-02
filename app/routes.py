@@ -76,6 +76,21 @@ def get_response(job_id):
     return jsonify({'status': 'running'})
 
 
+@webserver.route('/api/jobs', methods=['GET'])
+def get_jobs():
+
+    database = Database()
+
+    res = database.jobStatus
+
+    return jsonify({
+            'status': 'done',
+            'data': res
+        })
+
+
+
+
 @webserver.route('/api/states_mean', methods=['POST'])
 def states_mean_request():
     # Get request data
