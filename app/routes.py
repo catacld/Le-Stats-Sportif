@@ -89,171 +89,273 @@ def get_jobs():
         })
 
 
+@webserver.route('/api/num_jobs', methods=['GET'])
+def get_num_jobs():
+
+    database = Database()
+
+    jobsLeft = 0
+
+    for job in database.jobStatus:
+        if database.jobStatus[job] == 'running':
+            jobsLeft += 1
+
+    return jsonify({
+            'status': 'done',
+            'data': jobsLeft
+    })
+
+
+@webserver.route('/api/graceful_shutdown', methods=['GET'])
+def graceful_shutdown_request():
+
+    database = Database()
+
+    database.shutdown()
+
+    return jsonify({
+            'status': 'shutting down'
+    })
+
+
 
 
 @webserver.route('/api/states_mean', methods=['POST'])
 def states_mean_request():
-    # Get request data
-    data = request.json
-    print(f"Got request {data}")
 
-    global assigned_job_id
 
-    # TODO
-    # Register job. Don't wait for task to finish
+    database = Database()
 
-    job = Job(assigned_job_id, 'statesMeanRequest', data["question"])
-    threadPool.tasks.put(job)
+    if database.shutdown == False:
+        # Get request data
+        data = request.json
+        print(f"Got request {data}")
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        global assigned_job_id
+
+        # TODO
+        # Register job. Don't wait for task to finish
+
+        job = Job(assigned_job_id, 'statesMeanRequest', data["question"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+            'job_id': -1,
+            'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/state_mean', methods=['POST'])
 def state_mean_request():
-    data = request.json
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        data = request.json
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'stateMeanRequest', data["question"], data["state"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'stateMeanRequest', data["question"], data["state"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/best5', methods=['POST'])
 def best5_request():
-    # Get request data
-    data = request.json
-    print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        # Get request data
+        data = request.json
+        print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'best5Request', data["question"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'best5Request', data["question"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/worst5', methods=['POST'])
 def worst5_request():
-    # Get request data
-    data = request.json
-    print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        # Get request data
+        data = request.json
+        print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'worst5Request', data["question"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'worst5Request', data["question"])
+        threadPool.tasks.put(job)
 
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 @webserver.route('/api/global_mean', methods=['POST'])
 def global_mean_request():
-    data = request.json
-    # print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        data = request.json
+        # print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'globalMeanRequest', data["question"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'globalMeanRequest', data["question"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/diff_from_mean', methods=['POST'])
 def diff_from_mean_request():
-    data = request.json
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        data = request.json
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'diffFromMeanRequest', data["question"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'diffFromMeanRequest', data["question"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/state_diff_from_mean', methods=['POST'])
 def state_diff_from_mean_request():
-    # Get request data
-    data = request.json
-    # print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        # Get request data
+        data = request.json
+        # print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'statesDiffFromMeanRequest', data["question"], data["state"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'statesDiffFromMeanRequest', data["question"], data["state"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/mean_by_category', methods=['POST'])
 def mean_by_category_request():
-    data = request.json
-    print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        data = request.json
+        print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'meanByCategoryRequest', data["question"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'meanByCategoryRequest', data["question"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 @webserver.route('/api/state_mean_by_category', methods=['POST'])
 def state_mean_by_category_request():
-    data = request.json
-    # print(f"Got request {data}")
+    database = Database()
 
-    global assigned_job_id
+    if database.shutdown == False:
+        data = request.json
+        # print(f"Got request {data}")
 
-    # TODO
-    # Register job. Don't wait for task to finish
-    job = Job(assigned_job_id, 'stateMeanByCategoryRequest', data["question"], data["state"])
-    threadPool.tasks.put(job)
+        global assigned_job_id
 
-    # Increment job_id counter
-    assigned_job_id += 1
-    # Return associated job_id
-    return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+        # TODO
+        # Register job. Don't wait for task to finish
+        job = Job(assigned_job_id, 'stateMeanByCategoryRequest', data["question"], data["state"])
+        threadPool.tasks.put(job)
+
+        # Increment job_id counter
+        assigned_job_id += 1
+        # Return associated job_id
+        return jsonify({'job_id': f"job_id_{assigned_job_id}"})
+
+    return jsonify({
+        'job_id': -1,
+        'reason': 'shutting down'
+    })
 
 
 # You can check localhost in your browser to see what this displays

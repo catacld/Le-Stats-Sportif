@@ -30,6 +30,8 @@ class ThreadPool:
         # all the tasks
         self.tasks = Queue()
 
+        self.database = Database()
+
         for i in range(self.numThreads):
             # create a new thread and share the tasks list
             worker = TaskRunner(self.tasks)
@@ -38,7 +40,12 @@ class ThreadPool:
             # add the new thread to the list
             self.workers.append(worker)
 
-        # print(self.numThreads)
+        if self.tasks.empty() and self.database.shutdown is True:
+            for worker in self.workers:
+                worker.join()
+
+
+
         pass
 
 
@@ -47,10 +54,11 @@ class TaskRunner(Thread):
         # TODO: init necessary data structures
         Thread.__init__(self)
         self.tasks = tasks
+        self.database = Database()
         pass
 
     def run(self):
-        while True:
+        while True   and self.database.shutdown is False:
             # TODO
             # Get pending job
             # Execute the job and save the result to disk
@@ -287,7 +295,6 @@ class TaskRunner(Thread):
                                 sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
                                 numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
 
-                            # print('\nTHE KEY IS: ', key)
 
                     for key in sumForEachSegment:
                         averageForEachSegment[key] = sumForEachSegment[key] / numberOfValuesForEachSegment[key]
@@ -333,7 +340,6 @@ class TaskRunner(Thread):
 
 
                 elif job.requestType == 'globalMeanRequest':
-                    # print('stateMeanRequest')
 
                     state = job.state
 
