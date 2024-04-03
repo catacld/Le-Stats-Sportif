@@ -1,4 +1,5 @@
 import os
+import threading
 from queue import Queue
 from threading import Thread, Event
 import time
@@ -30,11 +31,14 @@ class ThreadPool:
         # all the tasks
         self.tasks = Queue()
 
+        self.lock = threading.Lock()
+
         self.database = Database()
+
 
         for i in range(self.numThreads):
             # create a new thread and share the tasks list
-            worker = TaskRunner(self.tasks)
+            worker = TaskRunner(self.tasks, self.lock)
             # start the new thread
             worker.start()
             # add the new thread to the list
@@ -50,11 +54,12 @@ class ThreadPool:
 
 
 class TaskRunner(Thread):
-    def __init__(self, tasks):
+    def __init__(self, tasks, lock):
         # TODO: init necessary data structures
         Thread.__init__(self)
         self.tasks = tasks
         self.database = Database()
+        self.lock = lock
         pass
 
     def run(self):
@@ -71,8 +76,8 @@ class TaskRunner(Thread):
                 # no locks needed since queues are already synchronized
                 job = self.tasks.get()
 
-                # set the job status as running
-                id = 'job_id_' + str(job.requestId)
+                # assign an id to the current job and set the status as running
+                id = 'job_id_' + str(job.jobId)
                 database.jobStatus[id] = 'running'
 
                 # extract the request' question
@@ -80,7 +85,7 @@ class TaskRunner(Thread):
 
                 # create the output path of the file
                 current_dir = os.getcwd()
-                output_file = f"job_id_{job.requestId}"
+                output_file = f"{id}.json"
                 output_path = current_dir + "/results/" + output_file
 
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)

@@ -7,18 +7,18 @@ from .task_runner import ThreadPool
 import os
 import json
 
-assigned_job_id = 1
+
 threadPool = ThreadPool()
 
 
 class Job:
 
-    def __init__(self, requestId, requestType, requestQuestion, state=None):
-        self.requestId = requestId
+    def __init__(self, jobId, requestType, requestQuestion, state=None):
         self.requestType = requestType
         self.requestQuestion = requestQuestion
         # used for ordering in best5 and worst5
         self.state = state
+        self.jobId = jobId
 
 
 # Example endpoint definition
@@ -42,16 +42,15 @@ def post_endpoint():
 
 @webserver.route('/api/get_results/<job_id>', methods=['GET'])
 def get_response(job_id):
-    print(f"JobID is {job_id}")
+    #print(f"JobID is {job_id}")
     # TODO
 
     # -1 since my ids starts from 1 and server ids from 2
-    convertedJobId = int(job_id.split("_")[2]) - 1
-    jobId = 'job_id_' + str(convertedJobId)
+    convertedJobId = 'job_id_' + job_id.split("_")[2]
     database = Database()
 
     # Check if job_id is valid
-    if jobId not in database.jobStatus:
+    if convertedJobId not in database.jobStatus:
         return jsonify({
             "status": "error",
             "reason": "Invalid job_id"
@@ -61,9 +60,11 @@ def get_response(job_id):
 
 
     # the job is valid and done
-    if database.jobStatus[jobId] == 'done':
+    if database.jobStatus[convertedJobId] == 'done':
         current_dir = os.getcwd()
-        output_path = os.path.join(current_dir, "results", f"job_id_{convertedJobId}")
+        output_path = os.path.join(current_dir, "results", f"{convertedJobId}.json")
+
+        print("OUTPUT PATH IN ROUTES: ", output_path)
         with open(output_path, 'r') as file:
             res = json.load(file)
 
@@ -72,6 +73,8 @@ def get_response(job_id):
                 'data': res
             })
 
+
+    print('LOOKING FOR JOB WITH ID: ', convertedJobId)
     # the job is valid, but still running
     return jsonify({'status': 'running'})
 
@@ -131,16 +134,19 @@ def states_mean_request():
         data = request.json
         print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
 
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'statesMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -157,15 +163,17 @@ def state_mean_request():
     if database.shutdown == False:
         data = request.json
 
-        global assigned_job_id
-
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'stateMeanRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -184,15 +192,17 @@ def best5_request():
         data = request.json
         print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
-        # Register job. Don't wait for task to finish
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'best5Request', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -211,15 +221,19 @@ def worst5_request():
         data = request.json
         print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'worst5Request', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -236,15 +250,19 @@ def global_mean_request():
         data = request.json
         # print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'globalMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -261,15 +279,19 @@ def diff_from_mean_request():
     if database.shutdown == False:
         data = request.json
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'diffFromMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -288,15 +310,19 @@ def state_diff_from_mean_request():
         data = request.json
         # print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'statesDiffFromMeanRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -314,15 +340,19 @@ def mean_by_category_request():
         data = request.json
         print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'meanByCategoryRequest', data["question"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
@@ -340,15 +370,19 @@ def state_mean_by_category_request():
         data = request.json
         # print(f"Got request {data}")
 
-        global assigned_job_id
+
 
         # TODO
         # Register job. Don't wait for task to finish
+
+        # get an id assigned to the current request
+        assigned_job_id = database.assignJobId()
+
+        # add the job to the queue
         job = Job(assigned_job_id, 'stateMeanByCategoryRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-        # Increment job_id counter
-        assigned_job_id += 1
+
         # Return associated job_id
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
