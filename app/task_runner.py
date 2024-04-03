@@ -78,7 +78,8 @@ class TaskRunner(Thread):
 
                 # assign an id to the current job and set the status as running
                 id = 'job_id_' + str(job.jobId)
-                database.jobStatus[id] = 'running'
+                database.setJobStatus(id, 'running')
+
 
                 # extract the request' question
                 question = job.requestQuestion
@@ -113,7 +114,8 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
+
 
 
 
@@ -136,7 +138,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
                 elif job.requestType == 'statesDiffFromMeanRequest':
                     state = job.state
@@ -162,7 +164,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
 
 
@@ -208,7 +210,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
 
                 elif job.requestType == 'worst5Request':
@@ -253,7 +255,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(sortedAverages))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
                 elif job.requestType == 'diffFromMeanRequest':
                     diffForEachState = {}
@@ -280,7 +282,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(diffForEachState))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
                 elif job.requestType == 'stateMeanByCategoryRequest':
                     state = job.state
@@ -310,7 +312,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
 
                 elif job.requestType == 'meanByCategoryRequest':
@@ -340,7 +342,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(averageForEachSegment))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
 
 
@@ -362,7 +364,7 @@ class TaskRunner(Thread):
                     with open(output_path, 'w+') as f:
                         f.write(json.dumps(answer))
 
-                    database.jobStatus[id] = 'done'
+                    database.setJobStatus(id, 'done')
 
                 # mark task as done
                 self.tasks.task_done()

@@ -42,15 +42,16 @@ def post_endpoint():
 
 @webserver.route('/api/get_results/<job_id>', methods=['GET'])
 def get_response(job_id):
-    #print(f"JobID is {job_id}")
+    print(f"JobID is {job_id}")
     # TODO
 
     # -1 since my ids starts from 1 and server ids from 2
     convertedJobId = 'job_id_' + job_id.split("_")[2]
     database = Database()
+    status = database.getJobStatus(convertedJobId)
 
     # Check if job_id is valid
-    if convertedJobId not in database.jobStatus:
+    if status == 'invalid id':
         return jsonify({
             "status": "error",
             "reason": "Invalid job_id"
@@ -60,11 +61,10 @@ def get_response(job_id):
 
 
     # the job is valid and done
-    if database.jobStatus[convertedJobId] == 'done':
+    if status == 'done':
         current_dir = os.getcwd()
         output_path = os.path.join(current_dir, "results", f"{convertedJobId}.json")
 
-        print("OUTPUT PATH IN ROUTES: ", output_path)
         with open(output_path, 'r') as file:
             res = json.load(file)
 
@@ -74,7 +74,6 @@ def get_response(job_id):
             })
 
 
-    print('LOOKING FOR JOB WITH ID: ', convertedJobId)
     # the job is valid, but still running
     return jsonify({'status': 'running'})
 
@@ -97,11 +96,7 @@ def get_num_jobs():
 
     database = Database()
 
-    jobsLeft = 0
-
-    for job in database.jobStatus:
-        if database.jobStatus[job] == 'running':
-            jobsLeft += 1
+    jobsLeft = database.getJobsLeft()
 
     return jsonify({
             'status': 'done',
@@ -132,7 +127,7 @@ def states_mean_request():
     if database.shutdown == False:
         # Get request data
         data = request.json
-        print(f"Got request {data}")
+        #print(f"Got request {data}")
 
 
 
