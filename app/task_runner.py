@@ -1,8 +1,7 @@
 import os
 import threading
 from queue import Queue
-from threading import Thread, Event
-import time
+from threading import Thread
 import json
 from itertools import islice
 
@@ -35,7 +34,6 @@ class ThreadPool:
 
         self.database = Database()
 
-
         for i in range(self.numThreads):
             # create a new thread and share the tasks list
             worker = TaskRunner(self.tasks, self.lock)
@@ -48,14 +46,12 @@ class ThreadPool:
             for worker in self.workers:
                 worker.join()
 
-
-
         pass
 
 
 class TaskRunner(Thread):
     def __init__(self, tasks, lock):
-        # TODO: init necessary data structures
+
         Thread.__init__(self)
         self.tasks = tasks
         self.database = Database()
@@ -63,11 +59,7 @@ class TaskRunner(Thread):
         pass
 
     def run(self):
-        while True   and self.database.shutdown is False:
-            # TODO
-            # Get pending job
-            # Execute the job and save the result to disk
-            # Repeat until graceful_shutdown
+        while True and self.database.shutdown is False:
 
             # wrapper used to access the 'database'
             database = Database()
@@ -79,7 +71,6 @@ class TaskRunner(Thread):
                 # assign an id to the current job and set the status as running
                 id = 'job_id_' + str(job.jobId)
                 database.setJobStatus(id, 'running')
-
 
                 # extract the request' question
                 question = job.requestQuestion
@@ -302,7 +293,6 @@ class TaskRunner(Thread):
                                 sumForEachSegment[key] = sumForEachSegment.get(key, 0) + item.dataValue
                                 numberOfValuesForEachSegment[key] = numberOfValuesForEachSegment.get(key, 0) + 1
 
-
                     for key in sumForEachSegment:
                         averageForEachSegment[key] = sumForEachSegment[key] / numberOfValuesForEachSegment[key]
 
@@ -347,8 +337,6 @@ class TaskRunner(Thread):
 
 
                 elif job.requestType == 'globalMeanRequest':
-
-                    state = job.state
 
                     sum = 0
                     num = 0

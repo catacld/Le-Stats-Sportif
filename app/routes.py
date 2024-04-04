@@ -7,18 +7,17 @@ from .task_runner import ThreadPool
 import os
 import json
 
-
 threadPool = ThreadPool()
 
 
 class Job:
 
-    def __init__(self, jobId, requestType, requestQuestion, state=None):
-        self.requestType = requestType
-        self.requestQuestion = requestQuestion
+    def __init__(self, job_id, request_type, request_question, state=None):
+        self.requestType = request_type
+        self.requestQuestion = request_question
         # used for ordering in best5 and worst5
         self.state = state
-        self.jobId = jobId
+        self.jobId = job_id
 
 
 # Example endpoint definition
@@ -42,98 +41,93 @@ def post_endpoint():
 
 @webserver.route('/api/get_results/<job_id>', methods=['GET'])
 def get_response(job_id):
-    print(f"JobID is {job_id}")
-    # TODO
-
-    # -1 since my ids starts from 1 and server ids from 2
-    convertedJobId = 'job_id_' + job_id.split("_")[2]
     database = Database()
-    status = database.getJobStatus(convertedJobId)
+
+    database.outputLog(f"Received get_results request with {job_id}")
+
+    status = database.getJobStatus(job_id)
 
     # Check if job_id is valid
     if status == 'invalid id':
+        database.outputLog(f"Exited get_results request with {job_id}")
         return jsonify({
             "status": "error",
             "reason": "Invalid job_id"
         })
 
-
-
-
     # the job is valid and done
     if status == 'done':
         current_dir = os.getcwd()
-        output_path = os.path.join(current_dir, "results", f"{convertedJobId}.json")
+        output_path = os.path.join(current_dir, "results", f"{job_id}.json")
 
         with open(output_path, 'r') as file:
             res = json.load(file)
-
+            database.outputLog(f"Exited get_results request with {job_id}")
             return jsonify({
                 'status': 'done',
                 'data': res
             })
 
-
     # the job is valid, but still running
+    database.outputLog(f"Exited get_results request with {job_id}")
     return jsonify({'status': 'running'})
 
 
 @webserver.route('/api/jobs', methods=['GET'])
 def get_jobs():
-
     database = Database()
+
+    database.outputLog("Received get_jobs request")
 
     res = database.jobStatus
 
+    database.outputLog("Exited get_jobs request")
+
     return jsonify({
-            'status': 'done',
-            'data': res
-        })
+        'status': 'done',
+        'data': res
+    })
 
 
 @webserver.route('/api/num_jobs', methods=['GET'])
 def get_num_jobs():
-
     database = Database()
 
-    jobsLeft = database.getJobsLeft()
+    database.outputLog("Received get_num_jobs request")
+
+    jobs_left = database.getJobsLeft()
+
+    database.outputLog("Exited get_num_jobs request")
 
     return jsonify({
-            'status': 'done',
-            'data': jobsLeft
+        'status': 'done',
+        'data': jobs_left
     })
 
 
 @webserver.route('/api/graceful_shutdown', methods=['GET'])
 def graceful_shutdown_request():
-
     database = Database()
+
+    database.outputLog("Received graceful_shutdown request")
 
     database.shutdown()
 
+    database.outputLog("Exited graceful_shutdown request")
+
     return jsonify({
-            'status': 'shutting down'
+        'status': 'shutting down'
     })
-
-
 
 
 @webserver.route('/api/states_mean', methods=['POST'])
 def states_mean_request():
-
-
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        # Get request data
-        data = request.json
-        #print(f"Got request {data}")
+    database.outputLog(f"Received states_mean request with question: {data['question']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -141,26 +135,25 @@ def states_mean_request():
         job = Job(assigned_job_id, 'statesMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited states_mean request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited states_mean request")
     return jsonify({
-            'job_id': -1,
-            'reason': 'shutting down'
+        'job_id': -1,
+        'reason': 'shutting down'
     })
 
 
 @webserver.route('/api/state_mean', methods=['POST'])
 def state_mean_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        data = request.json
+    database.outputLog(f"Received state_mean request with question: {data['question']} and state: {data['state']}")
 
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -168,10 +161,11 @@ def state_mean_request():
         job = Job(assigned_job_id, 'stateMeanRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited state_mean request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited state_mean request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -181,15 +175,11 @@ def state_mean_request():
 @webserver.route('/api/best5', methods=['POST'])
 def best5_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        # Get request data
-        data = request.json
-        print(f"Got request {data}")
+    database.outputLog(f"Received best5 request with question: {data['question']}")
 
-
-
-        # TODO
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -197,10 +187,11 @@ def best5_request():
         job = Job(assigned_job_id, 'best5Request', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited best5 request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited best5 request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -210,17 +201,11 @@ def best5_request():
 @webserver.route('/api/worst5', methods=['POST'])
 def worst5_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        # Get request data
-        data = request.json
-        print(f"Got request {data}")
+    database.outputLog(f"Received worst5 request with question: {data['question']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -228,28 +213,25 @@ def worst5_request():
         job = Job(assigned_job_id, 'worst5Request', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited worst5 request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited worst5 request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
     })
 
+
 @webserver.route('/api/global_mean', methods=['POST'])
 def global_mean_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        data = request.json
-        # print(f"Got request {data}")
+    database.outputLog(f"Received global_mean request with question: {data['question']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -257,10 +239,11 @@ def global_mean_request():
         job = Job(assigned_job_id, 'globalMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited global_mean request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited global_mean request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -270,15 +253,11 @@ def global_mean_request():
 @webserver.route('/api/diff_from_mean', methods=['POST'])
 def diff_from_mean_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        data = request.json
+    database.outputLog(f"Received diff_from_mean request with question: {data['question']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -286,10 +265,11 @@ def diff_from_mean_request():
         job = Job(assigned_job_id, 'diffFromMeanRequest', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited diff_from_mean request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited diff_from_mean request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -299,16 +279,13 @@ def diff_from_mean_request():
 @webserver.route('/api/state_diff_from_mean', methods=['POST'])
 def state_diff_from_mean_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
+    database.outputLog(
+        f"Received state_diff_from_mean request with question: {data['question']} and state: {data['state']}")
+
+    if not database.shutdown:
         # Get request data
-        data = request.json
-        # print(f"Got request {data}")
-
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
 
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
@@ -317,10 +294,11 @@ def state_diff_from_mean_request():
         job = Job(assigned_job_id, 'statesDiffFromMeanRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited state_diff_from_mean request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited state_diff_from_mean request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -330,16 +308,11 @@ def state_diff_from_mean_request():
 @webserver.route('/api/mean_by_category', methods=['POST'])
 def mean_by_category_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        data = request.json
-        print(f"Got request {data}")
+    database.outputLog(f"Received mean_by_category request with question: {data['question']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -347,10 +320,11 @@ def mean_by_category_request():
         job = Job(assigned_job_id, 'meanByCategoryRequest', data["question"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited mean_by_category request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited mean_by_category request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'
@@ -360,16 +334,12 @@ def mean_by_category_request():
 @webserver.route('/api/state_mean_by_category', methods=['POST'])
 def state_mean_by_category_request():
     database = Database()
+    data = request.json
 
-    if database.shutdown == False:
-        data = request.json
-        # print(f"Got request {data}")
+    database.outputLog(
+        f"Received state_mean_by_category request with question: {data['question']} and state: {data['state']}")
 
-
-
-        # TODO
-        # Register job. Don't wait for task to finish
-
+    if not database.shutdown:
         # get an id assigned to the current request
         assigned_job_id = database.assignJobId()
 
@@ -377,10 +347,11 @@ def state_mean_by_category_request():
         job = Job(assigned_job_id, 'stateMeanByCategoryRequest', data["question"], data["state"])
         threadPool.tasks.put(job)
 
-
         # Return associated job_id
+        database.outputLog("Exited state_mean_by_category request")
         return jsonify({'job_id': f"job_id_{assigned_job_id}"})
 
+    database.outputLog("Exited state_mean_by_category request")
     return jsonify({
         'job_id': -1,
         'reason': 'shutting down'

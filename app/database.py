@@ -1,14 +1,11 @@
-import json
-import os
 import threading
 import logging
 import time
+from logging.handlers import RotatingFileHandler
 
 
 class Database:
     _self = None
-
-    shutdown = False
 
     def __new__(cls):
         if cls._self is None:
@@ -18,28 +15,32 @@ class Database:
             cls._self.shutdown = False
             cls._self.jobId = 1
 
+            # locks needed for the synchronized methods
             cls._self.idLock = threading.Lock()
             cls._self.logLock = threading.Lock()
             cls._self.jobLock = threading.Lock()
+            cls._self.logLock = threading.Lock()
 
+            # logger setup
+            cls._self.logger = logging.getLogger(__name__)
+            cls._self.logger.setLevel(logging.INFO)
 
-            # cls._self.logger = logging.getLogger(__name__)
-            # logging.basicConfig(filename='webserver.log', level=logging.INFO)
-            #
-            # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-            # formatter.converter = time.gmtime
-            #
-            # ch = logging.StreamHandler()
-            # ch.setFormatter(formatter)
-            #
-            # cls._self.logger.addHandler(ch)
+            handler = RotatingFileHandler('webserver.log', mode='a', maxBytes=100000, backupCount=10)
+            formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(name)-15s:%(lineno)4s: %(message)-80s',
+                                          datefmt='%Y-%m-%d %H:%M:%S')
+            formatter.converter = time.gmtime
+            handler.setFormatter(formatter)
+
+            cls._self.logger.addHandler(handler)
 
         return cls._self
 
+    # helper method used to set the records
+    # with the values read from the csv
     def setRecords(cls, records):
         cls._self.records = records
 
-    # helper method to make sure that ids assignation
+    # synchronized method to make sure that id assignation
     # will be synchronized
     def assignJobId(self):
         self.idLock.acquire()
@@ -50,35 +51,27 @@ class Database:
 
         return self.jobId
 
-
-
-    # define a function for each interaction with the dictionary to
-    # ensure that only 1 thread will acces the dictionary at any
-    # given point in time to avoid any wrong reads
-
-
     # synchronized methods to access the dictionary
+    # where each job's status is stored
     # to make sure the value that is read
     # will always be correct
 
     def setJobStatus(self, jobId, status):
 
-
         self.jobLock.acquire()
-
 
         self.jobStatus[jobId] = status
 
         self.jobLock.release()
 
-    def getJobStatus(self, jobId):
+    def getJobStatus(self, job_id):
         self.jobLock.acquire()
 
-        if jobId not in self.jobStatus:
+        if job_id not in self.jobStatus:
             self.jobLock.release()
             return 'invalid id'
 
-        status = self.jobStatus[jobId]
+        status = self.jobStatus[job_id]
 
         self.jobLock.release()
 
@@ -86,23 +79,29 @@ class Database:
 
     def getJobsLeft(self):
 
-
-        jobsLeft = 0;
+        jobs_left = 0
 
         self.jobLock.acquire()
 
         for job in self.jobStatus:
             if self.jobStatus[job] == 'running':
-                jobsLeft += 1
-
+                jobs_left += 1
 
         self.jobLock.release()
 
+        return jobs_left
 
-        return jobsLeft
+    # synchronized method to write output
+    # to a log file to avoid any overwrites
+    def outputLog(self, message):
 
+        self.logLock.acquire()
 
+        self.logger.log(level=logging.INFO, msg=message)
 
+        self.logLock.release()
+
+    # method used to signal that a
+    # server shutdown is requested
     def shutdown(cls):
         cls._self.shutdown = True
-
