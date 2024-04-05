@@ -4,50 +4,16 @@ import unittest
 from datetime import datetime
 from time import sleep
 
-import pandas
+
 import requests
 from deepdiff import DeepDiff
 
-from app.database import Database
 
-
-# class used to save the records from the given csv file
-class Record:
-
-    def __init__(self, question, data_value, location_desc, stratification_category, stratification):
-        self.question = question
-        self.dataValue = data_value
-        self.locationDesc = location_desc
-        self.stratificationCategory = stratification_category
-        self.stratification = stratification
-
-    def __str__(self):
-        return f"\nQuestion: {self.question}, Value: {self.dataValue}, Location: {self.locationDesc} ..."
 
 
 class TestWebserver(unittest.TestCase):
 
     def setUp(self):
-        test_csv_path = './unit_tests_data.csv'
-        self.i = 1
-
-        # parse the csv file used for testing
-        data = pandas.read_csv(test_csv_path, usecols=['Question', 'Data_Value', 'LocationDesc',
-                                                       'StratificationCategory1', 'Stratification1'])
-
-        # save the data from the csv to a list
-        self.records = [Record(row['Question'], row['Data_Value'], row['LocationDesc'], row['StratificationCategory1'],
-                               row['Stratification1']) for index, row in data.iterrows()]
-
-        database = Database()
-
-        for record in self.records:
-            # if record['LocationDesc'] == 'Washington':
-            #     print("DATA_VAUE: ", record['Data_Value'])
-            print(record, "NUMBER:", self.i)
-            self.i += 1
-
-        print("RECORDS: ", len(self.records))
         pass
 
     def check_res_timeout(self, res_callable, ref_result, timeout_sec, poll_interval=0.2):
