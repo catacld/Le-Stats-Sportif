@@ -19,11 +19,8 @@ class Database:
             # all the tasks received from requests
             cls._self.tasks = Queue()
 
-            # locks needed for the synchronized methods
-            cls._self.idLock = threading.Lock()
-            cls._self.logLock = threading.Lock()
+            # lock needed for the synchronized methods
             cls._self.jobLock = threading.Lock()
-            cls._self.logLock = threading.Lock()
 
             # logger setup
             cls._self.logger = logging.getLogger(__name__)
@@ -44,14 +41,13 @@ class Database:
     def set_records(self, records):
         self.records = records
 
-    # synchronized method to make sure that id assignation
-    # will be synchronized
+    # method used to assign a job id
+    # when a request is received
+    # no need to be synchronized since
+    # only the main thread will call it
     def assign_job_id(self):
-        self.idLock.acquire()
 
         self.jobId += 1
-
-        self.idLock.release()
 
         return self.jobId
 
@@ -99,11 +95,9 @@ class Database:
     # to a log file to avoid any overwrites
     def output_log(self, message):
 
-        self.logLock.acquire()
-
         self.logger.log(level=logging.INFO, msg=message)
 
-        self.logLock.release()
+
 
     # method used to signal that a
     # server shutdown is requested
