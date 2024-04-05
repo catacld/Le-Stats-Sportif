@@ -21,11 +21,11 @@ class DataIngestor:
         data = pandas.read_csv(csv_path, usecols=['Question', 'Data_Value', 'LocationDesc',
                                                   'StratificationCategory1', 'Stratification1'])
 
-        # save the data from the csv to a dictionary
+        # save the data from the csv to a list
         records = [Record(row['Question'], row['Data_Value'], row['LocationDesc'], row['StratificationCategory1'],
                           row['Stratification1']) for index, row in data.iterrows()]
 
         # init the singleton wrapper class
         database = Database()
         # add the records
-        database.setRecords(records)
+        database.set_records(records)

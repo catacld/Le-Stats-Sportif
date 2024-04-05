@@ -2,6 +2,7 @@ import threading
 import logging
 import time
 from logging.handlers import RotatingFileHandler
+from queue import Queue
 
 
 class Database:
@@ -11,9 +12,12 @@ class Database:
         if cls._self is None:
             cls._self = super().__new__(cls)
             cls._self.records = []
-            cls._self.jobStatus = {}
+            cls._self.job_status = {}
             cls._self.shutdown = False
             cls._self.jobId = 1
+
+            # all the tasks received from requests
+            cls._self.tasks = Queue()
 
             # locks needed for the synchronized methods
             cls._self.idLock = threading.Lock()
@@ -37,12 +41,12 @@ class Database:
 
     # helper method used to set the records
     # with the values read from the csv
-    def setRecords(cls, records):
-        cls._self.records = records
+    def set_records(self, records):
+        self.records = records
 
     # synchronized method to make sure that id assignation
     # will be synchronized
-    def assignJobId(self):
+    def assign_job_id(self):
         self.idLock.acquire()
 
         self.jobId += 1
@@ -56,35 +60,35 @@ class Database:
     # to make sure the value that is read
     # will always be correct
 
-    def setJobStatus(self, jobId, status):
+    def set_job_status(self, job_id, status):
 
         self.jobLock.acquire()
 
-        self.jobStatus[jobId] = status
+        self.job_status[job_id] = status
 
         self.jobLock.release()
 
-    def getJobStatus(self, job_id):
+    def get_job_status(self, job_id):
         self.jobLock.acquire()
 
-        if job_id not in self.jobStatus:
+        if job_id not in self.job_status:
             self.jobLock.release()
             return 'invalid id'
 
-        status = self.jobStatus[job_id]
+        status = self.job_status[job_id]
 
         self.jobLock.release()
 
         return status
 
-    def getJobsLeft(self):
+    def get_jobs_left(self):
 
         jobs_left = 0
 
         self.jobLock.acquire()
 
-        for job in self.jobStatus:
-            if self.jobStatus[job] == 'running':
+        for job in self.job_status:
+            if self.job_status[job] == 'running':
                 jobs_left += 1
 
         self.jobLock.release()
@@ -93,7 +97,7 @@ class Database:
 
     # synchronized method to write output
     # to a log file to avoid any overwrites
-    def outputLog(self, message):
+    def output_log(self, message):
 
         self.logLock.acquire()
 
@@ -103,5 +107,5 @@ class Database:
 
     # method used to signal that a
     # server shutdown is requested
-    def shutdown(cls):
-        cls._self.shutdown = True
+    def shutdown(self):
+        self.shutdown = True
