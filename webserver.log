@@ -1,0 +1,676 @@
+2024-04-09 19:19:06 INFO    app.database   : 101: Received best5 request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:06 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:06 INFO    app.database   : 101: Received get_results request with job_id_2                                      
+2024-04-09 19:19:06 INFO    app.database   : 101: Exited get_results request with job_id_2                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_2                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_2                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received best5 request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_3                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_3                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_3                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_3                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received best5 request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_4                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_4                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_4                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_4                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received best5 request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_5                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_5                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_5                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_5                                        
+2024-04-09 19:19:07 INFO    app.database   : 101: Received best5 request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:07 INFO    app.database   : 101: Received get_results request with job_id_6                                      
+2024-04-09 19:19:07 INFO    app.database   : 101: Exited get_results request with job_id_6                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_6                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_6                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received best5 request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_7                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_7                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_7                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_7                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received best5 request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_8                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_8                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_8                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_8                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received best5 request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_9                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_9                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_9                                      
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_9                                        
+2024-04-09 19:19:08 INFO    app.database   : 101: Received best5 request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited best5 request                                                            
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_10                                     
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_10                                       
+2024-04-09 19:19:08 INFO    app.database   : 101: Received get_results request with job_id_10                                     
+2024-04-09 19:19:08 INFO    app.database   : 101: Exited get_results request with job_id_10                                       
+2024-04-09 19:19:19 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:19 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:19 INFO    app.database   : 101: Received get_results request with job_id_11                                     
+2024-04-09 19:19:19 INFO    app.database   : 101: Exited get_results request with job_id_11                                       
+2024-04-09 19:19:19 INFO    app.database   : 101: Received get_results request with job_id_11                                     
+2024-04-09 19:19:19 INFO    app.database   : 101: Exited get_results request with job_id_11                                       
+2024-04-09 19:19:19 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:19 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:19 INFO    app.database   : 101: Received get_results request with job_id_12                                     
+2024-04-09 19:19:19 INFO    app.database   : 101: Exited get_results request with job_id_12                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_12                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_12                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_13                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_13                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_13                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_13                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_14                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_14                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_14                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_14                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_15                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_15                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_15                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_15                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_16                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_16                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_16                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_16                                       
+2024-04-09 19:19:20 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:20 INFO    app.database   : 101: Received get_results request with job_id_17                                     
+2024-04-09 19:19:20 INFO    app.database   : 101: Exited get_results request with job_id_17                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_17                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_17                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_18                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_18                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received diff_from_mean request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited diff_from_mean request                                                   
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_19                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_19                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_19                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_19                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received global_mean request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_20                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_20                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_20                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_20                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received global_mean request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_21                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_21                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received get_results request with job_id_21                                     
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited get_results request with job_id_21                                       
+2024-04-09 19:19:21 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:21 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_22                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_22                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_22                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_22                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_23                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_23                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_23                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_23                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_24                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_24                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_24                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_24                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_25                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_25                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_25                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_25                                       
+2024-04-09 19:19:22 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:22 INFO    app.database   : 101: Received get_results request with job_id_26                                     
+2024-04-09 19:19:22 INFO    app.database   : 101: Exited get_results request with job_id_26                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_26                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_26                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_27                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_27                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_27                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_27                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received global_mean request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited global_mean request                                                      
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_28                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_28                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_28                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_28                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_29                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_29                                       
+2024-04-09 19:19:23 INFO    app.database   : 101: Received get_results request with job_id_29                                     
+2024-04-09 19:19:23 INFO    app.database   : 101: Exited get_results request with job_id_29                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_30                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_30                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_30                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_30                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_31                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_31                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_31                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_31                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_32                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_32                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_32                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_32                                       
+2024-04-09 19:19:24 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:24 INFO    app.database   : 101: Received get_results request with job_id_33                                     
+2024-04-09 19:19:24 INFO    app.database   : 101: Exited get_results request with job_id_33                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_33                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_33                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_34                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_34                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_34                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_34                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_35                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_35                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_35                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_35                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_36                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_36                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_36                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_36                                       
+2024-04-09 19:19:25 INFO    app.database   : 101: Received mean_by_category request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited mean_by_category request                                                 
+2024-04-09 19:19:25 INFO    app.database   : 101: Received get_results request with job_id_37                                     
+2024-04-09 19:19:25 INFO    app.database   : 101: Exited get_results request with job_id_37                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_37                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_37                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Virgin Islands
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_38                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_38                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_38                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_38                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Texas
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_39                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_39                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Michigan
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_40                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_40                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_40                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_40                                       
+2024-04-09 19:19:26 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Rhode Island
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:26 INFO    app.database   : 101: Received get_results request with job_id_41                                     
+2024-04-09 19:19:26 INFO    app.database   : 101: Exited get_results request with job_id_41                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_41                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_41                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Virgin Islands
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_42                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_42                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_42                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_42                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Texas
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_43                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_43                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_43                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_43                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Michigan
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_44                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_44                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_44                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_44                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Rhode Island
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_45                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_45                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_45                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_45                                       
+2024-04-09 19:19:27 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Virgin Islands
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:27 INFO    app.database   : 101: Received get_results request with job_id_46                                     
+2024-04-09 19:19:27 INFO    app.database   : 101: Exited get_results request with job_id_46                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_46                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_46                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Texas
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_47                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_47                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_47                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_47                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Michigan
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_48                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_48                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_48                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_48                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Texas
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_49                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_49                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_49                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_49                                       
+2024-04-09 19:19:28 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Rhode Island
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:28 INFO    app.database   : 101: Received get_results request with job_id_50                                     
+2024-04-09 19:19:28 INFO    app.database   : 101: Exited get_results request with job_id_50                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_50                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_50                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Michigan
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_51                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_51                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_51                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_51                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Rhode Island
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_52                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_52                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_52                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_52                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Virgin Islands
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_53                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_53                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_53                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_53                                       
+2024-04-09 19:19:29 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Texas
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:29 INFO    app.database   : 101: Received get_results request with job_id_54                                     
+2024-04-09 19:19:29 INFO    app.database   : 101: Exited get_results request with job_id_54                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_54                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_54                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Michigan
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_55                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_55                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_55                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_55                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Rhode Island
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_56                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_56                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_56                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_56                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received state_diff_from_mean request with question:Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Virgin Islands
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited state_diff_from_mean request                                             
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_57                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_57                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received get_results request with job_id_57                                     
+2024-04-09 19:19:30 INFO    app.database   : 101: Exited get_results request with job_id_57                                       
+2024-04-09 19:19:30 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Guam
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_58                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_58                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_58                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_58                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Maine
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_59                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_59                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_59                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_59                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Massachusetts
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_60                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_60                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_60                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_60                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: National
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_61                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_61                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_61                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_61                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received state_mean request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Guam
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:31 INFO    app.database   : 101: Received get_results request with job_id_62                                     
+2024-04-09 19:19:31 INFO    app.database   : 101: Exited get_results request with job_id_62                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_62                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_62                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received state_mean request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Maine
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_63                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_63                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_63                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_63                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received state_mean request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Massachusetts
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_64                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_64                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_64                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_64                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received state_mean request with question:Percent of adults aged 18 years and older who have an overweight classification and state: National
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_65                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_65                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_65                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_65                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Guam
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:32 INFO    app.database   : 101: Received get_results request with job_id_66                                     
+2024-04-09 19:19:32 INFO    app.database   : 101: Exited get_results request with job_id_66                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_66                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_66                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Maine
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_67                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_67                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_67                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_67                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Massachusetts
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_68                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_68                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_68                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_68                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Maine
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_69                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_69                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_69                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_69                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: National
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:33 INFO    app.database   : 101: Received get_results request with job_id_70                                     
+2024-04-09 19:19:33 INFO    app.database   : 101: Exited get_results request with job_id_70                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_70                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_70                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Massachusetts
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_71                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_71                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_71                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_71                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: National
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_72                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_72                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_72                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_72                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Guam
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_73                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_73                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_73                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_73                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Maine
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:34 INFO    app.database   : 101: Received get_results request with job_id_74                                     
+2024-04-09 19:19:34 INFO    app.database   : 101: Exited get_results request with job_id_74                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: Massachusetts
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_75                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_75                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_75                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_75                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination) and state: National
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_76                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_76                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_76                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_76                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received state_mean request with question:Percent of adults who report consuming vegetables less than one time daily and state: Guam
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited state_mean request                                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_77                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_77                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_77                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_77                                       
+2024-04-09 19:19:35 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Oklahoma
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:35 INFO    app.database   : 101: Received get_results request with job_id_78                                     
+2024-04-09 19:19:35 INFO    app.database   : 101: Exited get_results request with job_id_78                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_78                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_78                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Wisconsin
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_79                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_79                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_79                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_79                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Connecticut
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_80                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_80                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_80                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_80                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Georgia
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_81                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_81                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_81                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_81                                       
+2024-04-09 19:19:36 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Oklahoma
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:36 INFO    app.database   : 101: Received get_results request with job_id_82                                     
+2024-04-09 19:19:36 INFO    app.database   : 101: Exited get_results request with job_id_82                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_82                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_82                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Wisconsin
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_83                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_83                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_83                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_83                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Connecticut
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_84                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_84                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_84                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_84                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who engage in muscle-strengthening activities on 2 or more days a week and state: Georgia
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_85                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_85                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_85                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_85                                       
+2024-04-09 19:19:37 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who report consuming vegetables less than one time daily and state: Oklahoma
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:37 INFO    app.database   : 101: Received get_results request with job_id_86                                     
+2024-04-09 19:19:37 INFO    app.database   : 101: Exited get_results request with job_id_86                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_86                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_86                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who report consuming vegetables less than one time daily and state: Wisconsin
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_87                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_87                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_87                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_87                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who report consuming vegetables less than one time daily and state: Connecticut
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_88                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_88                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_88                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_88                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Wisconsin
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_89                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_89                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_89                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_89                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who report consuming vegetables less than one time daily and state: Georgia
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_90                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_90                                       
+2024-04-09 19:19:38 INFO    app.database   : 101: Received get_results request with job_id_90                                     
+2024-04-09 19:19:38 INFO    app.database   : 101: Exited get_results request with job_id_90                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Connecticut
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_91                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_91                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_91                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_91                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have an overweight classification and state: Georgia
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_92                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_92                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_92                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_92                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have obesity and state: Oklahoma
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_93                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_93                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_93                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_93                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have obesity and state: Wisconsin
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_94                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_94                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_94                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_94                                       
+2024-04-09 19:19:39 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have obesity and state: Connecticut
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:39 INFO    app.database   : 101: Received get_results request with job_id_95                                     
+2024-04-09 19:19:39 INFO    app.database   : 101: Exited get_results request with job_id_95                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_95                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_95                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults aged 18 years and older who have obesity and state: Georgia
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_96                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_96                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received state_mean_by_category request with question:Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week and state: Oklahoma
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited state_mean_by_category request                                           
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_97                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_97                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_97                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_97                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received states_mean request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_98                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_98                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_98                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_98                                       
+2024-04-09 19:19:40 INFO    app.database   : 101: Received states_mean request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:40 INFO    app.database   : 101: Received get_results request with job_id_99                                     
+2024-04-09 19:19:40 INFO    app.database   : 101: Exited get_results request with job_id_99                                       
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_99                                     
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_99                                       
+2024-04-09 19:19:41 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_100                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_100                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_100                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_100                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_101                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_101                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_101                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_101                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_102                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_102                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_102                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_102                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:41 INFO    app.database   : 101: Received get_results request with job_id_103                                    
+2024-04-09 19:19:41 INFO    app.database   : 101: Exited get_results request with job_id_103                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_103                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_103                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_104                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_104                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_104                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_104                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_105                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_105                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_105                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_105                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received states_mean request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited states_mean request                                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_106                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_106                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_106                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_106                                      
+2024-04-09 19:19:42 INFO    app.database   : 101: Received worst5 request with question: Percent of adults aged 18 years and older who have an overweight classification
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:42 INFO    app.database   : 101: Received get_results request with job_id_107                                    
+2024-04-09 19:19:42 INFO    app.database   : 101: Exited get_results request with job_id_107                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_107                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_107                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received worst5 request with question: Percent of adults aged 18 years and older who have obesity
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_108                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_108                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_108                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_108                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_109                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_109                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_109                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_109                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_110                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_110                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_110                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_110                                      
+2024-04-09 19:19:43 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination)
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:43 INFO    app.database   : 101: Received get_results request with job_id_111                                    
+2024-04-09 19:19:43 INFO    app.database   : 101: Exited get_results request with job_id_111                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_111                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_111                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who engage in muscle-strengthening activities on 2 or more days a week
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_112                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_112                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_112                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_112                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who engage in no leisure-time physical activity
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_113                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_113                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_113                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_113                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who report consuming fruit less than one time daily
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_114                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_114                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_114                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_114                                      
+2024-04-09 19:19:44 INFO    app.database   : 101: Received worst5 request with question: Percent of adults who report consuming vegetables less than one time daily
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited worst5 request                                                           
+2024-04-09 19:19:44 INFO    app.database   : 101: Received get_results request with job_id_115                                    
+2024-04-09 19:19:44 INFO    app.database   : 101: Exited get_results request with job_id_115                                      
+2024-04-09 19:19:45 INFO    app.database   : 101: Received get_results request with job_id_115                                    
+2024-04-09 19:19:45 INFO    app.database   : 101: Exited get_results request with job_id_115                                      

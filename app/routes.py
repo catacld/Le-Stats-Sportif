@@ -1,21 +1,23 @@
+import os
+import json
+
 from app import webserver
 from flask import request, jsonify
 
 from .database import Database
 
-import os
-import json
+
 
 
 # helper class to save the details from a received request
 class Job:
 
     def __init__(self, job_id, request_type, request_question, state=None):
-        self.requestType = request_type
-        self.requestQuestion = request_question
+        self.request_type = request_type
+        self.request_question = request_question
         # used for ordering in best5 and worst5
         self.state = state
-        self.jobId = job_id
+        self.job_id = job_id
 
 
 @webserver.route('/api/get_results/<job_id>', methods=['GET'])
@@ -39,7 +41,7 @@ def get_response(job_id):
         current_dir = os.getcwd()
         output_path = os.path.join(current_dir, "results", f"{job_id}.json")
 
-        with open(output_path, 'r') as file:
+        with open(output_path, 'r', encoding='utf-8') as file:
             res = json.load(file)
             database.output_log(f"Exited get_results request with {job_id}")
             return jsonify({
@@ -130,7 +132,8 @@ def state_mean_request():
     database = Database()
     data = request.json
 
-    database.output_log(f"Received state_mean request with question: {data['question']} and state: {data['state']}")
+    database.output_log(f"Received state_mean request with question:"
+                        f"{data['question']} and state: {data['state']}")
 
     if not database.shutdown:
         # get an id assigned to the current request
@@ -261,7 +264,8 @@ def state_diff_from_mean_request():
     data = request.json
 
     database.output_log(
-        f"Received state_diff_from_mean request with question: {data['question']} and state: {data['state']}")
+        f"Received state_diff_from_mean request with question:"
+        f"{data['question']} and state: {data['state']}")
 
     if not database.shutdown:
         # get an id assigned to the current request
@@ -314,7 +318,8 @@ def state_mean_by_category_request():
     data = request.json
 
     database.output_log(
-        f"Received state_mean_by_category request with question: {data['question']} and state: {data['state']}")
+        f"Received state_mean_by_category request with question:"
+        f"{data['question']} and state: {data['state']}")
 
     if not database.shutdown:
         # get an id assigned to the current request

@@ -8,26 +8,29 @@ from queue import Queue
 class Database:
     _self = None
 
+
     def __new__(cls):
         if cls._self is None:
             cls._self = super().__new__(cls)
-            cls._self.records = []
-            cls._self.job_status = {}
-            cls._self.shutdown = False
-            cls._self.jobId = 1
+            cls.records = []
+            cls.job_status = {}
+            cls.shutdown = False
+            cls.job_id = 1
 
             # all the tasks received from requests
-            cls._self.tasks = Queue()
+            cls.tasks = Queue()
 
             # lock needed for the synchronized methods
-            cls._self.jobLock = threading.Lock()
+            cls.jobLock = threading.Lock()
 
             # logger setup
             cls._self.logger = logging.getLogger(__name__)
             cls._self.logger.setLevel(logging.INFO)
 
-            handler = RotatingFileHandler('webserver.log', mode='a', maxBytes=100000, backupCount=10)
-            formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(name)-15s:%(lineno)4s: %(message)-80s',
+            handler = RotatingFileHandler('webserver.log',
+                                          mode='a', maxBytes=110000, backupCount=10)
+            formatter = logging.Formatter('%(asctime)s %(levelname)-8s'
+                                          '%(name)-15s:%(lineno)4s: %(message)-80s',
                                           datefmt='%Y-%m-%d %H:%M:%S')
             formatter.converter = time.gmtime
             handler.setFormatter(formatter)
@@ -47,9 +50,9 @@ class Database:
     # only the main thread will call it
     def assign_job_id(self):
 
-        self.jobId += 1
+        self.job_id += 1
 
-        return self.jobId
+        return self.job_id
 
     # synchronized methods to access the dictionary
     # where each job's status is stored
